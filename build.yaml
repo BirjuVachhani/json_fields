@@ -1,0 +1,21 @@
+builders:
+  json_fields:
+    import: "package:json_fields/builder.dart"
+    builder_factories: ["jsonFieldsBuilder"]
+    build_extensions: {".dart": [".json_fields.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+
+# Enable builders on test files for self-testing
+targets:
+  $default:
+    builders:
+      json_serializable:
+        enabled: true
+        generate_for:
+          - test/models/**
+      json_fields|json_fields:
+        enabled: true
+        generate_for:
+          - test/models/**

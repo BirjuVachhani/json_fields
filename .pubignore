@@ -1,0 +1,24 @@
+# Files excluded from the published pub archive.
+# https://dart.dev/tools/pub/publishing#what-files-are-published
+#
+# When .pubignore is present, .gitignore is NOT consulted by pub. Pub still
+# auto-excludes .git/, .gitignore, hidden files, and pubspec.lock for
+# library packages, but everything else must be listed here explicitly.
+
+# Build outputs and metadata.
+.dart_tool/
+pubspec.lock
+
+# Coverage outputs.
+coverage/
+
+# Tests can't be exercised by consumers: they pull in dev-only dependencies
+# (json_serializable, build_runner) and rely on regenerated build_runner
+# output. Ship lib/ + example/ only.
+test/
+
+# Dev-only lint configuration.
+analysis_options.yaml
+
+# macOS metadata.
+.DS_Store
